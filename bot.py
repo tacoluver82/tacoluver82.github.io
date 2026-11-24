@@ -1,0 +1,56 @@
+import time
+import sys
+import random
+print("Nisemono AI Free Edition")
+print("Popular searches include: Math, Ordering Food, AI Mukbangs, and How to Get Free Robux!")
+f = 0
+while True:
+    if f == 5:
+        print("Ran out of free uses")
+        print("Subscribe to Nisemono AI Premium for unlimited uses!")
+        break
+    if f != 4:
+        print(5-f, "free uses left")
+    else:
+        print("1 free use left")
+    f += 1
+    c = ["."]
+    print("What can I do for you?")
+    x = input("").lower()
+    for i in range(random.randint(3,6)):
+        print("Thinking", *c, sep= "")
+        time.sleep(1)
+        c.append(".")
+        if len(c) == 4:
+            c = ["."]
+        sys.stdout.write('\033[1A\033[2K')
+        sys.stdout.flush()
+    if ("eat" in x) or ("mukbang" in x) and ("order" not in x):
+        print("nom nom nom")
+    elif "+" in x:
+        x = x.split("+")
+        y = int(x[0]) + int(x[1])
+        print(y)
+    elif "-" in x:
+        x = x.split("-")
+        y = int(x[0]) - int(x[1])
+        print(y)
+    elif "*" in x:
+        x = x.split("*")
+        y = int(x[0]) * int(x[1])
+        print(y)
+    elif "/" in x:
+        x = x.split("/")
+        y = int(x[0]) / int(x[1])
+        print(y)
+    elif "free robux" in x:
+        print("17.83 Roblox users suggests going to scam.gg for free robux!")
+    elif (("order" in x) or ("get" in x)) and ("food" in x) or ("doordash" in x):
+        print("Where should it be delivered?")
+        location = input("")
+        if "house" or "casa" in location:
+            location = "yo house"
+        print("Ordering 73 McDoubles to", location )
+    else:
+        print("That exceeds the limits of Nisemono AI Free Edition")
+    print("-------------")
